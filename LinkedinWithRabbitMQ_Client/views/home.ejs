@@ -1,0 +1,907 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="icon" href="/images/favicon.ico">
+	<title>World's Largest Professional Network | LinkedIn</title>  
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="/css/jquery-ui.min.css" rel="stylesheet"> -->
+    <link href="/css/bootstrap-main.css" rel="stylesheet">
+       <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+   
+ <link href="/css/main.css" rel="stylesheet">
+    <script src="/scripts/bootstrap.min.js"></script>    
+     <script src="/angular_js/angular.min.js"></script>
+    <!-- Custom Fonts -->/
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body ng-app="signup" ng-controller="loginController">
+
+    <!-- Navigation -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" style="  box-shadow: 0 1px 1px;border-color:#1a1a1a" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"  href="index.html">
+                  <img src="images/small-logo.png" alt="#"></a>
+			</div>         
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" >
+                <ul class="nav pull-right navbar-nav" style="color:#999;">
+        		  <li>
+          			  <form class="navbar-form" method='POST'>			
+						<span id="menu-span">
+						<i class="glyphicon glyphicon-menu-hamburger"  style="font-size:18px;vertical-align:middle;color:#858585"></i>
+						<i class="glyphicon glyphicon-triangle-bottom" style="font-size:10px;vertical-align:middle;color:#999" ></i>
+						</span>			
+						<input type="text" name="connections" class="form-control" placeholder="Search" id="top-search">
+						<button type="submit" class="btn btn-default" id="search-submit" ><i class="glyphicon glyphicon-search" id="search-icon"></i></button>
+					</form>
+         		 </li>
+		 		  <li style="padding-left:80px;">
+        		  	  <a href="#" id="message"><i class="glyphicon glyphicon-envelope" style="font-size:20px;" ></i><span class="badge" style=""></span></a>
+				</li>
+          		<li>
+           			 <a href="#"><i class="glyphicon glyphicon-flag" style="font-size:20px;" ></i> <span class="badge" style=""></span></a>
+          		</li>
+		   		 <li>
+            		<a href="#"><i class="glyphicon glyphicon-plus" style="vertical-align:top;font-size:8px;" ></i><i class="glyphicon glyphicon-user" style="font-size:18px;" ></i><span class="badge" style=""></span></a>
+				</li>
+				 <li>
+         		  	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="images/avatar.png" id="avatar" alt="#" />  <span class="caret"></span></a>
+         		   	    <ul class="pull-right dropdown-menu" role="menu">
+				           <li><a href="#">Manage Account</a></li>
+				            <li><a href="#">Settings</a></li>
+				            <li><a href="#">Privacy</a></li>   				    
+				            <li class="divider"></li>
+				            <li><a href="/signout">Logout</a></li>
+				        </ul>
+				</li>
+        	</ul>
+            </div>
+            <!-- /.navbar-collapse -->            
+        </div>
+        <!-- /.container -->
+		</div>
+    </nav>
+   <nav class="navbar navbar-inverse navbar-fixed-top" id="menu-bar" role="navigation">  
+   <div class="container-fluid" style="margin:auto;width:980px;"> 
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" >
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="/invitations">invitations</a></li>
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Connections <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="menutag" role="menu">
+            <li><a href="/searchconnections">Add Connections</a></li>
+            <li><a href="/connections">Connections</a></li>
+        
+          </ul>
+        </li>
+      </ul>
+    
+    </div><!-- /.navbar-collapse -->
+    </div>
+   </nav>
+       <!-- /.container -->
+       
+       
+       
+       
+       
+ <div class="container">  		
+	<div class="row" id="middle-row">            
+        <div class="first-col">        
+		        	<div id="top-card">
+		        		<div id="profile-card">
+			        			<div id="profile-pic">    
+			        			<img src="/images/Pic.jpg" alt="#" width="200" height="200" alt="Sairam Nutheti" />    			
+			        			</div>
+			        			<div id="profile-overview">
+			        				<div id="profile-overview-content">
+			        				<h1><%=session.username%></h1>
+			        				<button class="edit-field edit-field-button">
+			        				<i class="glyphicon glyphicon-pencil" id="edit-bgicon"></i></button>
+			        				</div>
+			        				<div class="headline">
+			        				<button type="button" class="cta">Add Headline</button>
+			        				</div>
+			        				<div id="location-container">
+			        				<h3>Sairam Nutheti</h3>
+			        				<button class="edit-field edit-field-button">
+			        				<i class="glyphicon glyphicon-pencil" id="edit-slicon"></i></button>
+			        				</div>
+			        				<div class="headline">
+			        				<button type="button" class="cta">Add Industry</button>
+			        				</div>
+			        				
+			        				<div class="second-headline">
+			        				<button type="button" class="cta">Add Experience</button>
+			        				</div>
+			        				<div class="headline">
+			        				<button type="button" class="cta">Add Education</button>
+			        				</div>
+			        			</div>
+		        		</div>        		
+		        	</div>   
+		   	
+		<div id="erroralert" style="display:none;" class="alert alert-danger">								
+                                    <p id="error" >Error:</p>
+                                    <span></span>
+       </div> 
+
+<!--- ----------------------------------------Summary------------------------------------------------------------------------------------------- -->
+		<div id="background-summary-container">
+			<div id="summary-header">
+			<h3>Summary</h3>	
+
+			<% if(summary==null){ %>
+						<div class="edit-tools">
+	        			<button class="sideedit-button" onclick="$('#summaryModal').modal('show');" >+ Add Summary</button>
+		        		</div>	
+		        			</div> <!-- end of summary header -->	
+		     <% }  else{%>
+		   			  <div class="edit-tools">
+		   			  <button class="sideedit-button" data-ng-click="editsummary()" ><i class="glyphicon glyphicon-pencil" ></i></button> <!-- id="edit-mdicon"  -->
+		     			
+			           </div>
+				</div> <!-- end of summary header -->	
+			<div class="entity">
+			<!-- <textarea rows="7" cols="100" style="text-align: justify;resize:none;padding:10px" ng-init="summary='<%=summary%>'"  ng-model="summary" required ></textarea> -->
+			<div id="summary"   ng-model="summary"><%=summary%></div>    
+			</div>			
+			<%}%>	
+<!-- Summary Modal  -->  
+      		
+<div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Summary</h4>
+		      </div>
+		      <form id="SummaryForm"   role="form" class="form-horizontal" >
+				     	 <div class="modal-body">             		 
+								<div class='form-row'>
+							              <div class='col-xs-12 form-group card required'>							                               
+							                <!-- <input autocomplete='off' class='form-control card-number' id="description" ng-model="description" size='20' type='text'> -->
+							             	 <textarea rows="7" cols="70" style="text-align: justify;resize:none;padding:10px" id="updatedSummary" ng-model="updatedSummary" required></textarea>
+							              </div>
+					           	 </div>				
+				     	 </div>
+		      			 <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="submit" class="btn btn-primary confirm" data-ng-click='savesummary()'>Save changes</button>
+		     			</div>
+		       </form>
+		    </div>
+	</div>
+</div>
+ <!-- End Of modal -->
+								
+</div>
+		
+		        		
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------  -->		
+<!-- ***************************************************Education*************************************************************************************  -->   
+		     	
+		        <div id="background-education-container">
+		        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Education Modal !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
+
+
+  <div class="modal fade" id="educationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Education</h4>
+      </div>
+      <form id="EducationForm"   role="form" class="form-horizontal" >
+      <div class="modal-body">       	
+            		 
+			<div class='form-row' style="">
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>University Name</label>
+                <input class='form-control card-number' id="idEducation" ng-model="idEducation" size='20' type='hidden'>
+                <input autocomplete='off' class='form-control card-number' size='20' type='text' id="univname" ng-model="univname" required />
+              </div>
+            </div>
+              <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Field</label>
+                <input autocomplete='off' class='form-control card-number' id="field" ng-model="field" size='20' type='text' required />
+              </div>
+            </div>
+            
+            <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Level (Graduate,UnderGraduate,PHD)</label>
+                <input autocomplete='off' class='form-control card-number' id="level" ng-model="level" size='20' type='text' required />
+              </div>
+            </div>
+				
+				 				
+			<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Start Date</label>
+                 <!--  <input autocomplete='off' class='form-control card-number' id="edustartdate"  ng-model="edustartdate" size='20' type='date' required /> -->
+    				<!-- <div class='input-group date' id='datetimepicker1'>
+    				               					<input type='date' class="form-control"  id="edustartdate" ng-model="edustartdate" required />
+    				               					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+    				               					</span>
+    				  					 </div> -->
+               			
+               	 		<div id="startdatepicker" class="input-append date" style="width:530px">
+               	 		      						 <input type="datetime" class="datepickers" id="edustartdate" style="width:490px" ng-model="edustartdate" required />							 
+               	 		 							      <span class="add-on" id="calendar" >
+               	 		 							             <span class="glyphicon glyphicon-calendar">
+               	 		 							      </span>						 		
+               	 		    					    </div>
+              </div>
+            </div>		
+				 					                   
+     		<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>End Date</label>      
+                        <!--  <input autocomplete='off' class='form-control card-number'  id="eduenddate" ng-model="eduenddate" size='20' type='date' required /> -->
+                       	<!-- 	<div class='input-group date' id='datetimepicker'>
+                       			             <input type='date' class="form-control" id="eduenddate" ng-model="eduenddate"  />
+                       			               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                       			              </span>
+                       		 </div> -->
+	              <div id="enddatepicker" class="input-append date" style="width:530px">
+	               		      						 <input type="datetime" class="datepickers" id="eduenddate" style="width:490px" ng-model="eduenddate" />							 
+	               		 							      <span class="add-on" id="calendar" >
+	               		 							             <span class="glyphicon glyphicon-calendar">
+	               		 							      </span>						 		
+	             </div>
+	               		                          
+	              </div>
+            </div>	
+		
+			<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Grade</label>
+                
+                <input autocomplete='off' class='form-control card-number' id="grade" ng-model="grade" size='20' type='number' />
+              </div>
+            </div>		
+                        
+			<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Description</label>                
+                <input autocomplete='off' class='form-control card-number' id="description" ng-model="description" size='20' type='text' />
+              </div>
+            </div>			 	
+			
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary confirm" data-ng-click=updateEducation()>Save changes</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
+		        	<form>
+		        	<div id="background-education">		        	
+		        		<div id="education-header">
+		        		<h3>Education</h3>		        
+		        		<div class="edit-tools">
+	        			<button class="sideedit-button"   onclick="$('#educationModal').modal('show');">+ Add Education</button>
+		        		</div>
+		        		</div>
+		        			<% if(typeof education !='undefined'&& education!=""){
+		        				var enddate=((new Date(education[0].endDate)).getMonth()+1)+"/"+(new Date(education[0].endDate)).getFullYear();
+								var startdate=((new Date(education[0].startDate)).getMonth()+1)+"/"+(new Date(education[0].startDate)).getFullYear();
+		        			 %> 	
+		        			 	
+				          					        			
+				        		<div id="education-header" style="margin-top:0px;">		        					        
+		        				<div class="edit-tools">
+									<button class="sideedit-button"  id=<%=education[0].idEducation%> data-ng-click=editEducation($event)><i class="glyphicon glyphicon-pencil" id=<%=education[0].idEducation%> ></i></button>
+								</div>
+								</div>
+		        				<div class="entity" style="margin-top:40px;">
+			        				<div><h4><%=education[0].univName%></h4></div>
+			        				<div><h5><%=education[0].level%>  , 	<%=education[0].field%>  , <%=education[0].grade%></h5></div>   					
+			        				<div><h6><%=startdate%>&nbsp;&nbsp;&#8210; &nbsp;<%=enddate%></h6></div>	        				
+								</div> 		        				
+								
+		        	</div>
+		        	<% for(var i=1;i<education.length;i++){
+		        	var enddate=((new Date(education[i].endDate)).getMonth()+1)+"/"+(new Date(education[i].endDate)).getFullYear();
+						var startdate=((new Date(education[i].startDate)).getMonth()+1)+"/"+(new Date(education[i].startDate)).getFullYear();
+						%>					
+		        	<div id="background-education" >
+		        		<div id="education-header">
+		          		<div class="edit-tools">
+	        			<button class="sideedit-button" id=<%=education[i].idEducation%> data-ng-click=editEducation($event)><i class="glyphicon glyphicon-pencil pencolor " id=<%=education[i].idEducation%>></i></button>
+		        		</div>
+		        		</div>		        	
+		        		<div class="entity">
+		        				<div><h4><%=education[i].univName%></h4></div>
+		        				<div><h5><%=education[i].level%>  , 	<%=education[i].field%>  , <%=education[i].grade%></h5></div>   					
+		        				<div><h6><%=startdate%>&nbsp;&nbsp;&#8210; &nbsp;<%=enddate%></h6></div>	
+		        		</div>
+		        	</div>
+		        	<% } }else{%>
+		        	</div>
+		        	<%}%>
+		        	</form>	      	 
+	   	 
+		        </div>      	
+		        
+<!-- ************************************************************Experience******************************************************************  -->
+
+ <div id="background-education-container">
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Experience Modal ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  -->
+<div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Experience</h4>
+      </div>
+      <form id="ExperienceForm"   role="form" class="form-horizontal" >
+      <div class="modal-body" id="modalcss">       	
+            		 
+			<div class='form-row' style="">
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Company Name</label>
+                <input class='form-control card-number' id="expid" ng-model="expid" size='20' type='hidden'>
+                <input autocomplete='off' class='form-control card-number' size='20' type='text' id="companyname" ng-model="companyname" required />
+              </div>
+            </div>
+              <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Title</label>
+                <input autocomplete='off' class='form-control card-number' id="title" ng-model="title" size='20' type='text' required />
+              </div>
+            </div>          
+          	
+				 				
+			<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+             		   <label class='control-label'>Start Date</label>
+               <!-- 	<div class='input-group date' id='datetimepicker1'>
+               						<input type='text' class="form-control" id="expstartdate" ng-model="expstartdate" />
+               						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+               						</span>
+               					</div>		 -->	
+               		   <div id="expsrtdatepicker" class="input-append date" style="width:530px">
+               	 		      	<input type="datetime" class="datepickers" id="expstartdate" style="width:490px" ng-model="expstartdate" required />							 
+               	 		 							      <span class="add-on" id="calendar" >
+               	 		 							             <span class="glyphicon glyphicon-calendar">
+               	 		 							      </span>						 		
+               	 	   </div>
+              </div>
+            </div>		
+				 					                   
+     		<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+	                <label class='control-label'>End Date</label>
+	              	 <!-- <div class='input-group date' id='datetimepicker1'>
+	              	 					<input type='text' class="form-control" id="expenddate" ng-model="expenddate"  />
+	              	 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+	              	 					</span>
+	              	 				</div>	 -->	
+	              	   <div id="expenddatepicker" class="input-append date" style="width:530px">
+	               		       <input type="datetime" class="datepickers" id="expenddate" style="width:490px" ng-model="expenddate" />							 
+	               		 			<span class="add-on" id="calendar" >
+	               		 			 <span class="glyphicon glyphicon-calendar">
+	               		 			 </span>						 		
+	             	   </div>
+              	 	
+              </div>
+            </div>	
+            
+              <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Location</label>
+                <input autocomplete='off' class='form-control card-number' id="location" ng-model="location" size='20' type='text' required/>
+              </div>
+            </div>
+
+			<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Description</label>
+                
+                <input autocomplete='off' class='form-control card-number' id="expdescription" ng-model="expdescription" size='20' type='text'>
+              </div>
+            </div>		
+            	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary confirm" data-ng-click=updateExperience()>Save changes</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+		        	
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  -->	        			        
+	
+		        	<form>
+		        	<div id="background-education">		        	
+		        		<div id="education-header">
+		        		<h3>Experience</h3>		        
+		        		<div class="edit-tools">
+	        			<button class="sideedit-button"   onclick="$('#experienceModal').modal('show');">+ Add Experience</button>
+		        		</div>
+		        		</div>
+		        			<% if(typeof experience !='undefined'&& experience!=""){
+		        				var enddate=((new Date(experience[0].endDate)).getMonth()+1)+"/"+(new Date(experience[0].endDate)).getFullYear();
+								var startdate=((new Date(experience[0].startDate)).getMonth()+1)+"/"+(new Date(experience[0].startDate)).getFullYear();
+		        			 %> 	
+		        			 	
+				          					        			
+				        		<div id="education-header" style="margin-top:0px;">		        					        
+		        				<div class="edit-tools">
+									<button class="sideedit-button"  id=<%=experience[0].idExperience%> data-ng-click=editExperience($event)><i class="glyphicon glyphicon-pencil" id=<%=experience[0].idExperience%> ></i></button>
+								</div>
+								</div>
+		        				<div class="entity" style="margin-top:40px;">
+			        				<div><h4><%=experience[0].title%></h4></div>
+			        				<div><h5><%=experience[0].companyName.toUpperCase()%></h5></div>
+			        				  <div><h5><%=startdate%>&nbsp;&nbsp;&#8210;&nbsp;<%=enddate%> | <%=experience[0].location%> </h5></div>   					
+			        				<div><h6><%=experience[0].description%></h6></div>	        				
+								</div> 		        				
+								
+		        	</div>
+		        	<% for(var i=1;i<experience.length;i++){
+		        			var enddate=((new Date(experience[i].endDate)).getMonth()+1)+"/"+(new Date(experience[i].endDate)).getFullYear();
+					     	var startdate=((new Date(experience[i].startDate)).getMonth()+1)+"/"+(new Date(experience[i].startDate)).getFullYear();
+						%>					
+		        	<div id="background-education" >
+		        		<div id="education-header">
+		          		<div class="edit-tools">
+	        			<button class="sideedit-button" id=<%=experience[i].idExperience%> data-ng-click=editExperience($event)><i class="glyphicon glyphicon-pencil pencolor " id=<%=experience[i].idExperience%>></i></button>
+		        		</div>
+		        		</div>		        	
+		        		<div class="entity">
+		        						<div><h4><%=experience[i].title%></h4></div>
+			        				<div><h5><%=experience[i].companyName.toUpperCase()%></h5></div>
+			        				  <div><h5><%=startdate%>&nbsp;&nbsp;&#8210;&nbsp;<%=enddate%> | <%=experience[i].location%> </h5></div>   					
+			        				<div><h6><%=experience[i].description%></h6></div> 
+		        		</div>
+		        	</div>
+		        	<% } }else{%>
+		        	</div>
+		        	<%}%>
+		        	</form>	
+</div>  	 
+<!-- -----------------------------------------------------------------Skills-----------------------------------------------------------------------------  -->
+ <div id="background-education-container">
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Modal^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  -->
+  <div class="modal fade" id="skillsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Skills</h4>
+      </div>
+      <form id="SkillsForm"   role="form" class="form-horizontal" >
+      <div class="modal-body">			
+			<div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Skill Name</label>  
+                 <input class='form-control card-number' id="idSkills" ng-model="idSkills" size='20' type='hidden'>              
+                <input autocomplete='off' class='form-control card-number' id="skillName" ng-model="skillName" size='20' type='text'>
+              </div>
+            </div>				        	
+      </div> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary confirm" data-ng-click=saveSkill()>Save</button>
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+<!-- ****************************************************************************************************************  -->		        	
+
+  				<form>
+		        	<div id="background-education">		        	
+		        		<div id="skills-header">
+		        		<h3>Skills</h3>		        
+		        		<div class="edit-tools">
+	        			<button class="sideedit-button"   onclick="$('#skillsModal').modal('show');">+ Add Skill</button>
+		        		</div>
+		        		</div>
+		        			<% if(typeof skills !='undefined'&& skills!=""){
+		        				for(var i=0;i<skills.length;i++){
+		        			 %> 	
+		        			 	
+		        				<div class="entity" style="margin-bottom:15px;margin-top:0px;">
+			        				<div>	
+			        						<label  style="margin-right:20px;font-size:14px;"><%=skills[i].skillName%></label>
+			        						<div class="edit-tools"   >
+			        						<button id=<%=skills[i].idSkills%> dataskill=<%=skills[i].skillName%>  data-ng-click=editskills($event)>
+				        					<i class="glyphicon glyphicon-pencil" id=<%=skills[i].idSkills%> dataskill=<%=skills[i].skillName%> ></i></button> 
+				        					</div>  
+				        			 </div>  				        			 				    							      				
+								</div> 		        				
+								<% } }%>
+		        	</div>
+		        	
+		        	</form>	      	 
+ </div>  
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------   -->		        				
+		</div>
+	</div>	
+
+	   	 
+      <hr>
+		        <!-- Footer -->
+		        <footer>
+		            <div class="row" id="footer">							
+		                   <p class="em-class"><span class="footer-image"></span> <em> &copy; SJSU CMPE 273 - 2015</em></p>               
+		            </div>
+		        </footer>
+</div> <!-- /.container -->	
+    <!-- jQuery -->
+<script src="/scripts/jquery.js"></script>
+ <!-- Bootstrap Core JavaScript -->
+ <script src="/scripts/bootstrap.min.js"></script>
+ <script src="/scripts/bootstrap-datetimepicker.min.js"></script>
+  <script src="/js/dates.js"></script>
+    <script type="text/javascript">
+      $('#startdatepicker').datetimepicker({
+        format: 'yyyy-MM-dd',
+        language: 'pt-BR'
+      });
+       $('#enddatepicker').datetimepicker({
+        format: 'yyyy-MM-dd',
+        language: 'pt-BR'
+      });
+		     $('#expsrtdatepicker').datetimepicker({
+        format: 'yyyy-MM-dd',
+        language: 'pt-BR'
+      });
+       $('#expenddatepicker').datetimepicker({
+        format: 'yyyy-MM-dd',
+        language: 'pt-BR'
+      });
+      
+    	
+        $('.modal').on('hidden.bs.modal', function(){
+     		 $(this).find('form')[0].reset(); 
+        });
+  
+    	
+    </script>
+ 
+<script>	
+var app = angular.module('signup', []);
+app.controller("loginController", function($scope,$http) {     
+    
+/* -------------------------------------------------------------------------------------------------------------------------------  */  
+    	 $scope.savesummary=function(){    	
+    					 $("#erroralert").hide();		
+        				 $http({		
+							    method: 'POST',
+	            				url: '/summary',
+	            				data: {  "summary":$scope.updatedSummary }
+								 })
+						.success(function(response){						
+	         					     if(response.error!=undefined)
+	         					     {	         					     
+	         					  		document.getElementById('erroralert').style.display = "block";
+	         					  		document.getElementById("error").innerHTML = response.error;
+	         					     }    
+	         					     else if(response.status=="success"){	         					      
+	         					    $('#summary').text($scope.updatedSummary);
+	         					    window.location='\home';
+	         					     }	  
+	         					     $('#summaryModal').modal('hide');       					   
+	        					})
+	        			.error(function(error){
+	            			 $('#summaryModal').modal('hide');  
+	            			 document.getElementById('erroralert').style.display = "block";
+	            			 document.getElementById("error").innerHTML = error;
+	        					 });		        			 
+    		 }//end of save summary    		 
+    		 
+    	 $scope.editsummary=function(){   
+    	// alert($('#summary').text());
+    	// $scope.updatedSummary =$('#summary').text();
+    	$('#updatedSummary').val($('#summary').text());
+    	//$('#updatedSummary').html($('#summary').text());
+    	$('#summaryModal').modal('show');
+    	 }
+    		 
+    		 
+/* -------------------------------------------------------------------------------------------------------------------------------  */  		   		
+
+    	
+    		  $scope.updateEducation=function(){        	
+    			
+    	  		/*var ideducation=$scope.idEducation;    	  		    	  		
+    	  		var level=$scope.level;
+    	 		var univname=$scope.univname;
+    	 		var field= $scope.field;
+    	 		var grade=$scope.grade;
+    	 		var description=$scope.description;    	*/
+    	 		
+	         	var ideducation=$('#idEducation').val();									
+    	 		var level=$('#level').val();
+    	 		var univname=$('#univname').val();
+    	 	 	var field= $('#field').val();
+    	 		var grade=$('#grade').val();
+    	 		var description=$('#description').val(); 	    	 				
+    	 		var edustartdate=$('#edustartdate').val();      	 		
+    	 		var eduenddate=$('#eduenddate').val();    
+    	 		
+    	 		if(ideducation==undefined || ideducation=="")
+    	 		{
+    	 		//alert($scope.ideducation); 
+    	 				 $http({		
+								method: 'POST',
+	            				url: '/addeducation',
+	            				data: { "ideducation":ideducation,"level":level,
+	            						"univname":univname,"field":field,"description":description,"grade":grade,"startdate":edustartdate,
+	            						"enddate":eduenddate
+	            					   }
+	                })
+						.success(function(response){										
+	         					$('#experienceModal').modal('hide');	         					
+	         					/*	$scope.idEducation="";									
+    	 							$scope.level="";
+    	 							$scope.univname="";
+    	 	 						$scope.field="";
+    	 							$scope.grade="";
+    	 							$scope.description="";
+    	 							$scope.edustartdate="";
+    	 							$scope.eduenddate=""; */	
+    	 							if(response.error!=undefined){
+								document.getElementById('erroralert').style.display = "block";
+	         					document.getElementById("error").innerHTML = response.error;
+							}
+							else{
+								window.location='\home';
+							}	
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });
+    	 		}
+    	 		 else{	    
+    	 		
+    	  		 $http({		
+				  method: 'POST',
+	            				url: '/updateeducation',
+	            				data: { "ideducation":ideducation,"level":level,
+	            						"univname":univname,"field":field,"description":description,"grade":grade,"startdate":edustartdate,
+	            						"enddate":eduenddate
+	            					   }
+	                })
+						.success(function(response){
+							if(response.error!=undefined){
+								document.getElementById('erroralert').style.display = "block";
+	         					document.getElementById("error").innerHTML = response.error;
+							}
+							else{
+								window.location='\home';
+							}							         												
+	         					$('#experienceModal').modal('hide');	
+	         					// $('#experienceModal').find('form')[0].reset();	
+	         						/*scope.idEducation="";									
+    	 							$scope.level="";
+    	 							$scope.univname="";
+    	 	 						$scope.field="";
+    	 							$scope.grade="";
+    	 							$scope.description="";
+    	 							$scope.edustartdate="";
+    	 							$scope.eduenddate="";  	*/
+    	 							  
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });
+	        	}	
+    		 		
+    	 	} 		   	
+    	
+    	
+    $scope.editEducation=function(event){  
+    	  	var ideducation= event.target.id;
+    	 	  
+        	 $http({		
+				  method: 'POST',
+	            				url: '/education',
+	            				data: {"ideducation":ideducation}
+	            			 })
+						.success(function(response){	
+								$('#educationModal').modal('show');								
+									/*$scope.idEducation=response.education.idEducation;									
+    	 							$scope.level=response.education.level;
+    	 							$scope.univname=response.education.univName;
+    	 	 						$scope.field=response.education.field;
+    	 							$scope.grade=response.education.grade;
+    	 							$scope.description=response.education.description; 	
+    	 							$scope.edustartdate=(new Date(response.education.startDate)).getFullYear()+'-'+((new Date(response.education.startDate)).getMonth()+1)+'-'+(new Date(response.education.startDate)).getDate();
+    	 							$scope.eduenddate=(new Date(response.education.endDate)).getFullYear()+'-'+((new Date(response.education.endDate)).getMonth()+1)+'-'+(new Date(response.education.endDate)).getDate();      					
+	         					*/
+	         						$('#idEducation').val(response.education.idEducation);									
+    	 							$('#level').val(response.education.level);
+    	 							$('#univname').val(response.education.univName);
+    	 	 						$('#field').val(response.education.field);
+    	 							$('#grade').val(response.education.grade);
+    	 							$('#description').val(response.education.description); 	
+    	 							$('#edustartdate').val((new Date(response.education.startDate)).getFullYear()+'-'+((new Date(response.education.startDate)).getMonth()+1)+'-'+(new Date(response.education.startDate)).getDate());
+    	 							$('#eduenddate').val((new Date(response.education.endDate)).getFullYear()+'-'+((new Date(response.education.endDate)).getMonth()+1)+'-'+(new Date(response.education.endDate)).getDate());      					
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });	
+    		 }//end of editsummary  
+    	
+    	
+ /* ------------------------------------------------------------------------------------------------------------------------------------------------  */ 
+ 
+ 		  $scope.updateExperience=function(){
+ 		 
+    	  		var expid=$('#expid').val();
+    	 		var companyname=$('#companyname').val();
+    	 		var title= $('#title').val();
+    	 		var location=	 $('#location').val();
+    	 		var description= $('#expdescription').val();
+    	 		var startdate=$('#expstartdate').val();    	 	
+    	 		var enddate=$('#expenddate').val();
+				   		  
+    	 		if(expid!=undefined && expid!="")
+    	 		{   	  
+    	  		 $http({		
+				  method: 'POST',
+	            				url: '/updateexperience',
+	            				data: {"idExperience":expid,"companyname":companyname,"title":title,"location":location,"description":description,"startdate":startdate,"enddate":enddate}
+	            			 })
+						.success(function(response){	
+										window.location='\home';	
+									$('#experienceModal').modal('hide');         							
+	         						
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });	
+	        	}
+	        	else{
+	        			$http({		
+								  method: 'POST',
+	            				url: '/addexperience',
+	            				data: {"idExperience":expid,"companyname":companyname,"title":title,"location":location,"description":description,"startdate":startdate,"enddate":enddate}
+	            			 })
+						.success(function(response){	
+						
+								window.location='\home';			
+	         					$('#experienceModal').modal('hide');    					
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });
+	        	}
+    		 		
+    	 	} 	     
+    	 	
+    	 	 
+    	 $scope.editExperience=function(event){  
+    	  var idexperience= event.target.id;       	  
+        	 $http({		
+				  method: 'POST',
+	            				url: '/experience',
+	            				data: {"idexperience":idexperience}
+	            			 })
+						.success(function(response){	
+								$('#experienceModal').modal('show');	
+									/*$scope.expid=response.experience.idExperience;
+    	 							$scope.companyname=response.experience.companyName;
+    	 	 						$scope.title=response.experience.title;
+    	 							$scope.location=response.experience.location;
+    	 							$scope.expdescription=response.experience.description;
+    	 							//$scope.expstartdate=response.experience.startDate;
+    	 							//$scope.expenddate=response.experience.endDate; 
+    	 							$scope.expstartdate=(new Date(response.experience.startDate)).getFullYear()+'-'+((new Date(response.experience.startDate)).getMonth()+1)+'-'+(new Date(response.experience.startDate)).getDate();
+    	 							$scope.expenddate=(new Date(response.experience.endDate)).getFullYear()+'-'+((new Date(response.experience.endDate)).getMonth()+1)+'-'+(new Date(response.experience.endDate)).getDate();	
+    	 							 */
+    	 							   
+    	 							$('#expid').val(response.experience.idExperience);
+    	 							 $('#companyname').val(response.experience.companyName);
+    	 	 						 $('#title').val(response.experience.title);
+    	 							 $('#location').val(response.experience.location);
+    	 							 $('#expdescription').val(response.experience.description);    	 							
+    	 							 $('#expstartdate').val((new Date(response.experience.startDate)).getFullYear()+'-'+((new Date(response.experience.startDate)).getMonth()+1)+'-'+(new Date(response.experience.startDate)).getDate());
+    	 							 $('#expenddate').val((new Date(response.experience.endDate)).getFullYear()+'-'+((new Date(response.experience.endDate)).getMonth()+1)+'-'+(new Date(response.experience.endDate)).getDate());	
+    	 							 					
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });	
+    		 } 
+    		 
+/* ------------------------------------------------------------------------------------------------------------------------------------------------  */	 
+    		   $scope.editskills=function(obj){    		  
+    		 	//	$scope.idSkills= obj.target.id;	   
+    		  	//$scope.skillName= obj.target.attributes.dataskill.value;    		  			 
+    		  		$('#idSkills').val(obj.target.id);	
+   					$('#skillName').val(obj.target.attributes.dataskill.value);	 	
+   					
+    		  		$('#skillsModal').modal('show');
+    		   }
+    		
+    		   
+    		   
+    	 $scope.saveSkill=function(){
+    		      var idSkills=$('#idSkills').val(); //$scope.idSkills;	      
+    	 		 var skillname=$('#skillName').val(); //$scope.skillName;
+    	 		//alert(idSkills,skillname);
+    	 		if(idSkills==undefined || idSkills=="")
+    	 		{    	  	
+    	  		 $http({		
+				  method: 'POST',
+	            				url: '/addSkill',
+	            				data: { "skillName":skillname  }
+	                })
+						.success(function(response){	
+								window.location='\home';	         												
+	         					$('#skillModal').modal('hide');	
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });
+	        	}	
+	        	else
+	        	{
+	        		$http({		
+							  method: 'POST',
+	            				url: '/updateSkill',
+	            				data: { "skillName":skillname ,"idSkills":idSkills}
+	                })
+						.success(function(response){	
+								window.location='\home';	         												
+	         					$('#skillModal').modal('hide');	
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });
+	        	}
+		}    	 		 
+ /* -------------------------------------------------------------------------------------------------------------------------------  */      		 
+ });
+
+    
+    </script>	
+    
+    	
+</body>
+</html>

@@ -1,0 +1,195 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="icon" href="/images/favicon.ico">
+	<title>World's Largest Professional Network | LinkedIn</title>  
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="/css/jquery-ui.min.css" rel="stylesheet"> -->
+    <link href="/css/bootstrap-main.css" rel="stylesheet">
+       <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+   
+ <link href="/css/main.css" rel="stylesheet">
+    <script src="/scripts/bootstrap.min.js"></script>    
+     <script src="/angular_js/angular.min.js"></script>
+    <!-- Custom Fonts -->/
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body ng-app="signup" ng-controller="loginController">
+
+    <!-- Navigation -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" style="  box-shadow: 0 1px 1px;border-color:#1a1a1a" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"  href="index.html">
+                  <img src="images/small-logo.png" alt="#"></a>
+			</div>         
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" >
+                <ul class="nav pull-right navbar-nav" style="color:#999;">
+        		  <li>
+          			  <form class="navbar-form" method='POST' action="/">			
+						<span id="menu-span">
+						<i class="glyphicon glyphicon-menu-hamburger"  style="font-size:18px;vertical-align:middle;color:#858585"></i>
+						<i class="glyphicon glyphicon-triangle-bottom" style="font-size:10px;vertical-align:middle;color:#999" ></i>
+						</span>			
+						<input type="text" name="enteredText" class="form-control" placeholder="Search" id="top-search">
+						<button type="submit" class="btn btn-default" id="search-submit" ><i class="glyphicon glyphicon-search" id="search-icon"></i></button>
+					</form>
+         		 </li>
+		 		  <li style="padding-left:80px;">
+        		  	  <a href="#" id="message"><i class="glyphicon glyphicon-envelope" style="font-size:20px;" ></i><span class="badge" style=""></span></a>
+				</li>
+          		<li>
+           			 <a href="#"><i class="glyphicon glyphicon-flag" style="font-size:20px;" ></i> <span class="badge" style=""></span></a>
+          		</li>
+		   		 <li>
+            		<a href="#"><i class="glyphicon glyphicon-plus" style="vertical-align:top;font-size:8px;" ></i><i class="glyphicon glyphicon-user" style="font-size:18px;" ></i><span class="badge" style=""></span></a>
+				</li>
+				 <li>
+         		  	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="images/avatar.png" id="avatar" alt="#" />  <span class="caret"></span></a>
+         		   	    <ul class="pull-right dropdown-menu" role="menu">
+				           <li><a href="#">Manage Account</a></li>
+				            <li><a href="#">Settings</a></li>
+				            <li><a href="#">Privacy</a></li>   				    
+				            <li class="divider"></li>
+				            <li><a href="/signout">Logout</a></li>
+				        </ul>
+				</li>
+        	</ul>
+            </div>
+            <!-- /.navbar-collapse -->            
+        </div>
+        <!-- /.container -->
+		</div>
+    </nav>
+   <nav class="navbar navbar-inverse navbar-fixed-top" id="menu-bar" role="navigation">  
+   <div class="container-fluid" style="margin:auto;width:980px;"> 
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" >
+        <li class="active"><a href="/home">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="/invitations">invitations</a></li>
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Connections <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="menutag" role="menu">
+            <li><a href="/searchconnections">Add Connections</a></li>
+            <li><a href="/connections">Connections</a></li>
+        
+          </ul>
+        </li>
+      </ul>
+    
+    </div><!-- /.navbar-collapse -->
+    </div>
+   </nav>
+       <!-- /.container -->
+   
+ <div class="container">  	
+  <% if(typeof error!='undefined'){%>
+		<div id="global-error">
+			<div role="alert" class="alert alert-danger" >
+				<p><strong><%=error%></strong></p>
+			</div>
+		</div>
+		<%}%>
+		
+		<div id="erroralert" style="display:none;" class="alert alert-danger">								
+                                    <p id="error" >Error:</p>
+                                    <span></span>
+                                </div> 
+	<div class="row" id="middle-row">            
+        <div class="first-col"> 
+        <form>
+        
+        
+       
+          <% if(typeof members !='undefined'&& members!="")
+       {
+       		for(var i=0;i<members.length;i++){       		
+       %>
+        	 <div id="background-connection-container">
+        	 	<div id="background-connection">		        	
+		        		<div id="connection-header">
+		        			<h3><%=members[i].FullName%></h3>		        
+			        		<div class="edit-tools">
+			        		<%if(members[i].idConnection!="" && members[i].idConnection!=null){%>
+		        			<button class="sideedit-button" id=<%=members[i].idConnection%> data-ng-click=sendInvitation($event)>Accept Invitation</button>
+		        			<%}%>
+			        		</div>
+		        		</div>
+        	 	</div>
+        	</div>	
+	 <%}}else{%>
+	       	 <div id="background-connection-container">
+        	 	<div id="background-connection">		        	
+		        		<div id="connection-header">
+		        		<h3>No Results Found</h3>	       		
+		        		</div>
+        	 	</div>
+        	</div> 	
+	 <%}%> 	 
+	  </form>
+	 </div></div> 
+		 
+      <hr>
+		        <!-- Footer -->
+		        <footer>
+		            <div class="row" id="footer">							
+		                   <p class="em-class"><span class="footer-image"></span> <em> &copy; SJSU CMPE 273 - 2015</em></p>               
+		            </div>
+		        </footer>
+</div> <!-- /.container -->	
+    <!-- jQuery -->
+<script src="/scripts/jquery.js"></script>
+ <!-- Bootstrap Core JavaScript -->
+ <script src="/scripts/bootstrap.min.js"></script>
+ <script src="/scripts/bootstrap-datetimepicker.min.js"></script>
+<script>
+var app = angular.module('signup', []);
+app.controller("loginController", function($scope,$http) {    
+/* -------------------------------------------------------------------------------------------------------------------------------  */  
+    	 $scope.sendInvitation=function(event){      	 
+    	  var fromUser= event.target.id;   	  
+    	  		 $http({		
+				  method: 'POST',
+	            				url: '/invite',
+	            				data: {"fromUser":fromUser}
+	            			 })
+						.success(function(response){	
+									  if(response.error!=undefined)
+	         					     {	         					     
+	         					  		document.getElementById('erroralert').style.display = "block";
+	         					  		document.getElementById("error").innerHTML = response.error;
+	         					     }    
+	         					     else if(response.status=="success"){	         					      
+	         					    	
+	         					   // window.location='\search';
+	         					     }	  		
+	         					
+	        					})
+	        			.error(function(error){
+	            			
+	        			 });	  
+    	 }
+  	}
+  
+ </script>

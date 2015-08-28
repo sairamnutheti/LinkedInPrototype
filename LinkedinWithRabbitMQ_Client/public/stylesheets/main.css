@@ -1,0 +1,85 @@
+#logo{
+padding-bottom:0px;
+padding-top:0px;
+}
+
+#top-search{
+height:27px;
+width:350px;
+margin-left:-5px;
+border-radius:0px;
+padding-left:5px;
+font-weight:normal;
+}
+
+#avatar{
+height:20px;
+width:20px;}
+#search-submit{
+height:27px;
+margin-top:0px;
+  font-size: 13px;
+  color: #fff;
+  background-color: #287bbc;
+  border-color: #1b5480;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF287BBC', endColorstr='#FF23639A');
+  background-image: -webkit-linear-gradient(top, #287bbc 0%,#23639a 100%);
+    overflow: hidden;
+}
+
+#search-icon{
+padding-top:0px;
+padding-bottom:1px;
+}
+#search-span{
+height:27px;
+  background: #575757;
+  background-image: -webkit-linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  background-image: -moz-linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  background-image: -o-linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  background-image: linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  -webkit-border-radius: 2px 0 0 2px;
+  -moz-border-radius: 2px 0 0 2px;
+  -ms-border-radius: 2px 0 0 2px;
+  -o-border-radius: 2px 0 0 2px;
+
+}
+#menu-span{
+padding: 5px 5px 7px;
+margin-top:5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color:#575757;
+  text-align: center;
+  border: 1px solid #575757;
+  border-radius: 4px;
+  width:35px;
+  font-size: 13px;
+  color: #fff;
+  background: #575757;
+  background-image: -webkit-linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  background-image: -moz-linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  background-image: -o-linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  background-image: linear-gradient(top, #888888 0%,#888888 4%,#575757 100%);
+  -webkit-border-radius: 2px 0 0 2px;
+  -moz-border-radius: 2px 0 0 2px;
+  -ms-border-radius: 2px 0 0 2px;
+  -o-border-radius: 2px 0 0 2px;
+    overflow: hidden;
+}
+#message:hover {
+display: block;
+}
+
+#menu-bar{
+margin-top:50px;
+border-color:#1a1a1a;
+min-height:25px;
+background-color: #1a1a1a;
+  background-image: -webkit-linear-gradient(top, #1a1a1a 0%,#303030 100%);
+  background-image: -moz-linear-gradient(top, #1a1a1a 0%,#303030 100%);
+  background-image: -o-linear-gradient(top, #1a1a1a 0%,#303030 100%);
+  background-image: linear-gradient(top, #1a1a1a 0%,#303030 100%);
+  z-index: 1;
+}
